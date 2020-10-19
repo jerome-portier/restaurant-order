@@ -1,0 +1,78 @@
+// const Title = styled.h2`
+//   font-size: 30px;
+// `;
+
+// const Container = styled.div`
+//   margin-top: 50px;
+//   font-size: 25px;
+// `;
+
+// const Ol = styled.ol`
+//   padding: 0;
+// `;
+
+// const Li = styled.li`
+//   list-style: none;
+//   display: flex;
+//   justify-content: space-between;
+//   flex-wrap: wrap;
+//   max-width: 100%;
+// `;
+
+// const QtyBox = styled.span`
+//   margin-left: 20px;
+// `;
+
+// const Cell = styled.span`
+//   display: inline-block;
+//   padding: 0 5px;
+//   margin-bottom: 10px;
+// `;
+
+// const Button = styled.button`
+//   border-radius: 12px;
+//   border: 1px solid black;
+//   font-size: 18px;
+// `;
+
+<template>
+  <div class="menu-container" style="margin-top: 50px; font-size: 25px;">
+    <h2 id="menu-title" style="font-size: 30px;">Menu:</h2>
+    <ol style="padding: 0;">
+      <MenuRow v-for="menuItem in menu"
+        :key="menuItem.item"
+        :item="menuItem.item"
+        :price="menuItem.price"
+        :quantity="quantities[menuItem.item]"
+        :increase="increase(menuItem.item)"
+        :decrease="decrease(menuItem.item)">
+      </MenuRow>
+    </ol>
+  </div>
+</template>
+
+<script>
+import MenuRow from './MenuRow';
+export default {
+  name: "Menu",
+  components: { MenuRow },
+  props: {
+    menu: {
+      type: Array,
+      required: true,
+    },
+    quantities: {
+      type: Object,
+      required: true,
+    },
+    increase: {
+      type: Function,
+      required: true,
+    },
+    decrease: {
+      type: Function,
+      required: true,
+    },
+  }
+};
+</script>
