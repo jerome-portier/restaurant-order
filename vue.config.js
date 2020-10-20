@@ -15,8 +15,9 @@ module.exports = {
     ],
     devServer: {
       headers: {
-        'Access-Control-Allow-Origin': '*'            
-      }
+        'Access-Control-Allow-Origin': '*'
+      },
+      port: 5001
     }
     // With the configuration below we rename the filename in the 'value', not the key!?
     // output: {

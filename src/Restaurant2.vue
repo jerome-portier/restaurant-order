@@ -29,10 +29,8 @@ export default {
     };
   },
   mounted() {
-    // const host = process.env.REACT_APP_CONTENT_HOST;
-    // const id = this.props.match.params.id;
-    const host = "http://localhost:5000"; // TODO
-    const id = 1; // TODO: CHANGE
+    const host = process.env.VUE_APP_CONTENT_HOST;
+    const id = this.id;
 
     fetch(`${host}/restaurants/${id}.json`)
       .then(result => result.json())
@@ -40,6 +38,7 @@ export default {
         this.restaurant = {
             ...restaurant,
             imageSrc: `${host}${restaurant.imageSrc}`,
+            id: this.id
           };
         this.loading = false;
       })
